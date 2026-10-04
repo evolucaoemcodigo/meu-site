@@ -1,14 +1,14 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Minha Loja</title>
+    <title>Prime Shop | Shopee</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,143 +21,212 @@
             color: #222;
         }
 
-        /* CABEÇALHO */
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
         header {
-            width: 100%;
-            background: #ffffff;
-            padding: 35px 20px;
             text-align: center;
+            padding: 30px 20px;
             border-bottom: 1px solid #eeeeee;
         }
 
         .titulo {
-            font-size: 38px;
+            font-size: 32px;
             font-weight: bold;
-            margin-bottom: 10px;
         }
 
         .subtitulo {
-            font-size: 18px;
+            margin-top: 8px;
             color: #666;
+            font-size: 16px;
         }
 
-        /* ÁREA DOS PRODUTOS */
+
+        /* =========================
+           ÁREA DOS PRODUTOS
+        ========================== */
+
         .container {
-            max-width: 1200px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
         .produtos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 250px);
+            justify-content: center;
+            gap: 15px;
         }
 
-        /* PRODUTO */
+
+        /* =========================
+           CARTÃO DO PRODUTO
+        ========================== */
+
         .produto {
-            background: #ffffff;
             border: 1px solid #e5e5e5;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .produto:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.10);
-        }
-
-        /* IMAGEM */
-        .imagem-produto {
-            width: 100%;
-            height: 280px;
-            object-fit: contain;
             background: #ffffff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+
+        /* =========================
+           ÁREA BRANCA DA IMAGEM
+        ========================== */
+
+        .area-imagem {
+            width: 100%;
+            height: 180px;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px;
+        }
+
+
+        /* =========================
+           IMAGEM
+        ========================== */
+
+        .imagem-produto {
+            max-width: 100%;
+            max-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
             display: block;
         }
 
-        /* INFORMAÇÕES */
+
+        /* =========================
+           INFORMAÇÕES
+        ========================== */
+
         .informacoes {
-            padding: 20px;
+            padding: 18px;
         }
 
         .nome-produto {
-            font-size: 21px;
-            font-weight: bold;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         .descricao {
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.5;
             color: #666;
-            min-height: 72px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
-        /* BOTÃO */
+
+        /* =========================
+           LINK
+        ========================== */
+
+        .link-produto {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-produto:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           BOTÃO COMPRAR
+        ========================== */
+
         .botao {
             display: block;
             width: 100%;
+
             text-align: center;
-            padding: 13px 15px;
+
             background: #111111;
             color: white;
+
+            padding: 12px;
+
+            border-radius: 6px;
+
             text-decoration: none;
-            border-radius: 7px;
             font-weight: bold;
-            transition: background 0.2s;
+
+            margin-top: 15px;
         }
 
         .botao:hover {
             background: #333333;
         }
 
-        /* RODAPÉ */
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
         footer {
-            margin-top: 60px;
-            padding: 30px 20px;
+            margin-top: 50px;
+            padding: 25px;
+
             text-align: center;
+
             border-top: 1px solid #eeeeee;
+
             color: #777;
             font-size: 14px;
         }
 
-        /* CELULAR */
-        @media (max-width: 600px) {
+
+        /* =========================
+           CELULAR
+        ========================== */
+
+        @media (max-width: 650px) {
+
+            .produtos {
+                grid-template-columns: 250px;
+            }
 
             .titulo {
-                font-size: 29px;
+                font-size: 27px;
             }
 
-            .subtitulo {
-                font-size: 16px;
+            .area-imagem {
+                height: 180px;
             }
 
-            .container {
-                margin-top: 25px;
-            }
-
-            .imagem-produto {
-                height: 250px;
-            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =====================================================
-         TÍTULO DO SITE
-         EDITE OS TEXTOS ABAIXO
-    ====================================================== -->
+
+    <!-- =========================
+         TÍTULO
+    ========================== -->
 
     <header>
 
         <h1 class="titulo">
-            OFERTAS &amp; BELEZA
+            Prime Shop | Shopee
         </h1>
 
         <p class="subtitulo">
@@ -167,36 +236,59 @@
     </header>
 
 
-    <!-- =====================================================
+
+    <!-- =========================
          PRODUTOS
-    ====================================================== -->
+    ========================== -->
 
     <main class="container">
 
         <div class="produtos">
 
 
-            <!-- ================= PRODUTO 1 ================= -->
+            <!-- =========================
+                 PRODUTO 1
+            ========================== -->
 
             <div class="produto">
 
-                <img
-                    class="imagem-produto"
-                    src="produto1.jpg"
-                    alt="Produto 1"
-                >
+                <!-- ÁREA BRANCA DA IMAGEM -->
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto1.jpg"
+                        alt="Produto 1"
+                    >
+
+                </div>
+
+
+                <!-- INFORMAÇÕES -->
 
                 <div class="informacoes">
 
                     <h2 class="nome-produto">
-                        Body Splash Morango e Leite
+                        Nome do Produto 1
                     </h2>
 
                     <p class="descricao">
-                        Desodorante colônia com fragrância agradável
-                        e delicada. Uma opção para deixar sua rotina
-                        ainda mais perfumada.
+
+                        Coloque aqui a descrição do produto.
+                        Você também pode colocar um
+
+                        <a
+                            class="link-produto"
+                            href="https://www.shopee.com.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            link para o produto
+                        </a>.
+
                     </p>
+
 
                     <a
                         class="botao"
@@ -204,7 +296,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Comprar
+                        Comprar na Shopee
                     </a>
 
                 </div>
@@ -212,61 +304,50 @@
             </div>
 
 
-            <!-- ================= PRODUTO 2 ================= -->
+
+            <!-- =========================
+                 PRODUTO 2
+            ========================== -->
 
             <div class="produto">
 
-                <img
-                    class="imagem-produto"
-                    src="produto2.jpg"
-                    alt="Produto 2"
-                >
+                <!-- ÁREA BRANCA DA IMAGEM -->
 
-                <div class="informacoes">
+                <div class="area-imagem">
 
-                    <h2 class="nome-produto">
-                        Kit Body Splash Feminino
-                    </h2>
-
-                    <p class="descricao">
-                        Uma opção especial para quem gosta de
-                        fragrâncias marcantes e agradáveis.
-                    </p>
-
-                    <a
-                        class="botao"
-                        href="https://www.shopee.com.br/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <img
+                        class="imagem-produto"
+                        src="produto2.jpg"
+                        alt="Produto 2"
                     >
-                        Comprar
-                    </a>
 
                 </div>
 
-            </div>
 
-
-            <!-- ================= PRODUTO 3 ================= -->
-
-            <div class="produto">
-
-                <img
-                    class="imagem-produto"
-                    src="produto3.jpg"
-                    alt="Produto 3"
-                >
+                <!-- INFORMAÇÕES -->
 
                 <div class="informacoes">
 
                     <h2 class="nome-produto">
-                        Loção Corporal
+                        Nome do Produto 2
                     </h2>
 
                     <p class="descricao">
-                        Produto para cuidados diários, com textura
-                        agradável e ótimo para sua rotina de beleza.
+
+                        Coloque aqui a descrição do produto.
+                        Você também pode colocar um
+
+                        <a
+                            class="link-produto"
+                            href="https://www.shopee.com.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            link para o produto
+                        </a>.
+
                     </p>
+
 
                     <a
                         class="botao"
@@ -274,112 +355,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Comprar
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= PRODUTO 4 ================= -->
-
-            <div class="produto">
-
-                <img
-                    class="imagem-produto"
-                    src="produto4.jpg"
-                    alt="Produto 4"
-                >
-
-                <div class="informacoes">
-
-                    <h2 class="nome-produto">
-                        Produto de Beleza
-                    </h2>
-
-                    <p class="descricao">
-                        Confira os detalhes deste produto e veja
-                        todas as informações disponíveis.
-                    </p>
-
-                    <a
-                        class="botao"
-                        href="https://www.shopee.com.br/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Comprar
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= PRODUTO 5 ================= -->
-
-            <div class="produto">
-
-                <img
-                    class="imagem-produto"
-                    src="produto5.jpg"
-                    alt="Produto 5"
-                >
-
-                <div class="informacoes">
-
-                    <h2 class="nome-produto">
-                        Produto para Cabelos
-                    </h2>
-
-                    <p class="descricao">
-                        Cuidados especiais para deixar seus cabelos
-                        ainda mais bonitos.
-                    </p>
-
-                    <a
-                        class="botao"
-                        href="https://www.shopee.com.br/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Comprar
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= PRODUTO 6 ================= -->
-
-            <div class="produto">
-
-                <img
-                    class="imagem-produto"
-                    src="produto6.jpg"
-                    alt="Produto 6"
-                >
-
-                <div class="informacoes">
-
-                    <h2 class="nome-produto">
-                        Perfume
-                    </h2>
-
-                    <p class="descricao">
-                        Fragrância para complementar seu estilo
-                        e deixar uma presença marcante.
-                    </p>
-
-                    <a
-                        class="botao"
-                        href="https://www.shopee.com.br/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Comprar
+                        Comprar na Shopee
                     </a>
 
                 </div>
@@ -392,17 +368,20 @@
     </main>
 
 
-    <!-- =====================================================
+
+    <!-- =========================
          RODAPÉ
-    ====================================================== -->
+    ========================== -->
 
     <footer>
 
-        <p>
-            © 2026 Ofertas &amp; Beleza — Todos os direitos reservados.
-        </p>
+        © 2026 Prime Shop | Shopee
+        <br>
+        Produtos selecionados para você.
 
     </footer>
 
+
 </body>
+
 </html>
