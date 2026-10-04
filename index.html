@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -30,6 +31,10 @@
             text-align: center;
             padding: 30px 20px;
             border-bottom: 1px solid #eeeeee;
+
+            position: relative;
+
+            min-height: 170px;
         }
 
         .titulo {
@@ -41,6 +46,63 @@
             margin-top: 8px;
             color: #666;
             font-size: 16px;
+        }
+
+
+        /* =========================
+           TEXTO SUPERIOR
+           LADO DIREITO
+
+           SEM BARRA DE ROLAGEM
+        ========================== */
+
+        .texto-superior {
+            position: absolute;
+
+            top: 15px;
+            right: 20px;
+
+            width: 300px;
+
+            text-align: left;
+
+            font-size: 14px;
+            line-height: 1.5;
+
+            color: #555;
+
+            white-space: pre-line;
+
+            margin: 0;
+        }
+
+
+        /* =========================
+           BOTÃO DE VOZ
+        ========================== */
+
+        .botao-voz {
+            position: absolute;
+
+            top: 130px;
+            right: 20px;
+
+            border: none;
+
+            background: #111111;
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .botao-voz:hover {
+            background: #333333;
         }
 
 
@@ -90,6 +152,11 @@
             justify-content: center;
 
             padding: 10px;
+
+            overflow: visible;
+
+            position: relative;
+            z-index: 1;
         }
 
 
@@ -107,6 +174,26 @@
             object-fit: contain;
 
             display: block;
+
+            transition: transform 0.3s ease;
+
+            cursor: zoom-in;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================
+           AMPLIAR AO PASSAR O MOUSE
+        ========================== */
+
+        .imagem-produto:hover {
+            transform: scale(1.8);
+
+            cursor: zoom-out;
+
+            z-index: 999;
         }
 
 
@@ -123,11 +210,18 @@
             margin-bottom: 10px;
         }
 
+
+        /* =========================
+           DESCRIÇÃO
+        ========================== */
+
         .descricao {
             font-size: 15px;
             line-height: 1.5;
             color: #666;
             margin-bottom: 15px;
+
+            white-space: pre-line;
         }
 
 
@@ -209,6 +303,42 @@
                 height: 180px;
             }
 
+
+            /* =========================
+               TEXTO NO CELULAR
+            ========================== */
+
+            .texto-superior {
+                position: absolute;
+
+                top: 15px;
+                right: 10px;
+
+                width: 45%;
+
+                text-align: left;
+
+                font-size: 11px;
+                line-height: 1.4;
+
+                margin: 0;
+            }
+
+
+            .botao-voz {
+                top: 125px;
+                right: 10px;
+
+                font-size: 11px;
+
+                padding: 6px 9px;
+            }
+
+
+            header {
+                min-height: 165px;
+            }
+
         }
 
     </style>
@@ -233,6 +363,34 @@
             Produtos selecionados para você
         </p>
 
+
+        <!-- =========================
+             TEXTO SUPERIOR
+
+             ESCREVA SUA FRASE AQUI
+        ========================== -->
+
+        <p class="texto-superior" id="textoVoz">
+
+Seja bem-vindo à Prime Shop!
+
+Aqui você encontra produtos selecionados e analisados para facilitar sua escolha.
+
+As compras são realizadas com segurança diretamente pela Shopee, proporcionando segurança.
+        </p>
+
+
+        <!-- =========================
+             BOTÃO DE VOZ
+        ========================== -->
+
+        <button
+            class="botao-voz"
+            onclick="lerMensagem()"
+        >
+            🔊 Ouvir mensagem
+        </button>
+
     </header>
 
 
@@ -252,8 +410,6 @@
 
             <div class="produto">
 
-                <!-- ÁREA BRANCA DA IMAGEM -->
-
                 <div class="area-imagem">
 
                     <img
@@ -265,38 +421,37 @@
                 </div>
 
 
-                <!-- INFORMAÇÕES -->
-
                 <div class="informacoes">
 
                     <h2 class="nome-produto">
-                        Nome do Produto 1
+                        Sabonete Barra Avon Encanto Irresistive 4un 80g
                     </h2>
+
 
                     <p class="descricao">
 
-                        Coloque aqui a descrição do produto.
-                        Você também pode colocar um
+ENCANTO SABONETE
+BARRA IRRESISTIVE
+Irresistivel & Poderosa
+Sabonete em Barra
+Modo de Uso
 
-                        <a
-                            class="link-produto"
-                            href="https://www.shopee.com.br/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            link para o produto
-                        </a>.
+Durante o banho,
+massageie delicadamente
+todo o corpo e enxágue
+em seguida.
 
                     </p>
 
 
                     <a
                         class="botao"
-                        href="https://www.shopee.com.br/"
+                        href="https://s.shopee.com.br/1LgHiJwloQ"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Comprar na Shopee
+                        🚨 NÃO PERCA!
+                        🛒 Clique aqui!
                     </a>
 
                 </div>
@@ -311,8 +466,6 @@
 
             <div class="produto">
 
-                <!-- ÁREA BRANCA DA IMAGEM -->
-
                 <div class="area-imagem">
 
                     <img
@@ -324,27 +477,20 @@
                 </div>
 
 
-                <!-- INFORMAÇÕES -->
-
                 <div class="informacoes">
 
                     <h2 class="nome-produto">
                         Nome do Produto 2
                     </h2>
 
+
                     <p class="descricao">
 
-                        Coloque aqui a descrição do produto.
-                        Você também pode colocar um
+Coloque aqui a descrição do produto.
 
-                        <a
-                            class="link-produto"
-                            href="https://www.shopee.com.br/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            link para o produto
-                        </a>.
+Você pode escrever normalmente
+e organizar a descrição no código
+usando as quebras de linha.
 
                     </p>
 
@@ -382,6 +528,79 @@
     </footer>
 
 
+
+    <!-- =========================
+         VOZ AUTOMÁTICA
+    ========================== -->
+
+    <script>
+
+        function lerMensagem() {
+
+            if (!("speechSynthesis" in window)) {
+
+                alert("Seu navegador não possui suporte para leitura de voz.");
+
+                return;
+            }
+
+
+            speechSynthesis.cancel();
+
+
+            const elemento = document.getElementById("textoVoz");
+
+            const texto = elemento.innerText.trim();
+
+
+            const fala = new SpeechSynthesisUtterance(texto);
+
+
+            /* Português do Brasil */
+
+            fala.lang = "pt-BR";
+
+
+            /* Velocidade da voz */
+
+            fala.rate = 0.95;
+
+
+            /* Tom da voz */
+
+            fala.pitch = 1;
+
+
+            /* Volume */
+
+            fala.volume = 1;
+
+
+            speechSynthesis.speak(fala);
+
+        }
+
+
+
+        /* =========================
+           TENTA LER AUTOMATICAMENTE
+           AO ENTRAR NA PÁGINA
+        ========================== */
+
+        window.addEventListener("load", function () {
+
+            setTimeout(function () {
+
+                lerMensagem();
+
+            }, 800);
+
+        });
+
+    </script>
+
+
 </body>
 
 </html>
+
