@@ -1,524 +1,562 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Prime Shop | Shopee</title>
 
-<title>Prime Shop | Shopee</title>
+    <style>
 
-<style>
+        /* =========================
+           CONFIGURAÇÃO GERAL
+        ========================== */
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: #ffffff;
-        color: #222;
-    }
-
-
-    /* =========================
-       CABEÇALHO
-    ========================== */
-
-    header {
-        text-align: center;
-        padding: 30px 20px;
-        border-bottom: 1px solid #eeeeee;
-
-        position: relative;
-
-        min-height: 170px;
-    }
-
-    .titulo {
-        font-size: 32px;
-        font-weight: bold;
-    }
-
-    .subtitulo {
-        margin-top: 8px;
-        color: #666;
-        font-size: 16px;
-    }
-
-
-    /* =========================
-       TEXTO SUPERIOR
-       LADO DIREITO
-
-       TEXTO OCULTO
-       CONTINUA SENDO USADO
-       PELA VOZ
-    ========================== */
-
-    .texto-superior {
-        display: none;
-    }
-
-
-    /* =========================
-       BOTÃO DE VOZ
-    ========================== */
-
-    .botao-voz {
-        position: absolute;
-
-        top: 130px;
-        right: 20px;
-
-        border: none;
-
-        background: #111111;
-        color: white;
-
-        padding: 7px 12px;
-
-        border-radius: 5px;
-
-        cursor: pointer;
-
-        font-size: 13px;
-    }
-
-    .botao-voz:hover {
-        background: #333333;
-    }
-
-
-    /* =========================
-       ÁREA DOS PRODUTOS
-    ========================== */
-
-    .container {
-        max-width: 900px;
-        margin: 35px auto;
-        padding: 0 20px;
-    }
-
-    .produtos {
-        display: grid;
-        grid-template-columns: repeat(2, 250px);
-        justify-content: center;
-        gap: 15px;
-    }
-
-
-    /* =========================
-       CARTÃO DO PRODUTO
-    ========================== */
-
-    .produto {
-        border: 1px solid #e5e5e5;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #ffffff;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    }
-
-
-    /* =========================
-       ÁREA BRANCA DA IMAGEM
-    ========================== */
-
-    .area-imagem {
-        width: 100%;
-        height: 180px;
-
-        background: #ffffff;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding: 10px;
-
-        overflow: visible;
-
-        position: relative;
-        z-index: 1;
-    }
-
-
-    /* =========================
-       IMAGEM
-    ========================== */
-
-    .imagem-produto {
-        max-width: 100%;
-        max-height: 100%;
-
-        width: auto;
-        height: auto;
-
-        object-fit: contain;
-
-        display: block;
-
-        transition: transform 0.3s ease;
-
-        cursor: zoom-in;
-
-        position: relative;
-        z-index: 2;
-    }
-
-
-    /* =========================
-       AMPLIAR AO PASSAR O MOUSE
-    ========================== */
-
-    .imagem-produto:hover {
-        transform: scale(1.8);
-
-        cursor: zoom-out;
-
-        z-index: 999;
-    }
-
-
-    /* =========================
-       INFORMAÇÕES
-    ========================== */
-
-    .informacoes {
-        padding: 18px;
-    }
-
-    .nome-produto {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-
-    /* =========================
-       PREÇO DO PRODUTO
-
-       PADRÃO PARA TODOS
-    ========================== */
-
-    .preco {
-        font-size: 24px;
-        font-weight: bold;
-        color: #e60000;
-
-        margin-bottom: 12px;
-
-        text-align: left;
-    }
-
-
-    /* =========================
-       DESCRIÇÃO
-    ========================== */
-
-    .descricao {
-        font-size: 15px;
-        line-height: 1.5;
-
-        color: #666;
-
-        margin-bottom: 15px;
-
-        white-space: pre-line;
-    }
-
-
-    /* =========================
-       LINK
-    ========================== */
-
-    .link-produto {
-        color: #0066cc;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .link-produto:hover {
-        text-decoration: underline;
-    }
-
-
-    /* =========================
-       BOTÃO COMPRAR
-    ========================== */
-
-    .botao {
-        display: block;
-        width: 100%;
-
-        text-align: center;
-
-        background: #111111;
-        color: white;
-
-        padding: 12px;
-
-        border-radius: 6px;
-
-        text-decoration: none;
-        font-weight: bold;
-
-        margin-top: 15px;
-    }
-
-    .botao:hover {
-        background: #333333;
-    }
-
-
-    /* =========================
-       RODAPÉ
-    ========================== */
-
-    footer {
-        margin-top: 50px;
-        padding: 25px;
-
-        text-align: center;
-
-        border-top: 1px solid #eeeeee;
-
-        color: #777;
-        font-size: 14px;
-    }
-
-
-    /* =========================
-       CELULAR
-    ========================== */
-
-    @media (max-width: 650px) {
-
-        .produtos {
-            grid-template-columns: 250px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .titulo {
-            font-size: 27px;
-        }
-
-        .area-imagem {
-            height: 180px;
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #222;
         }
 
 
         /* =========================
-           TEXTO SUPERIOR CONTINUA OCULTO
+           CABEÇALHO
         ========================== */
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            min-height: 170px;
+        }
+
+        .titulo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .subtitulo {
+            margin-top: 8px;
+            color: #666;
+            font-size: 16px;
+        }
 
         .texto-superior {
             display: none;
         }
 
-
         .botao-voz {
-            top: 125px;
-            right: 10px;
+            position: absolute;
+            top: 130px;
+            right: 20px;
 
-            font-size: 11px;
+            border: none;
+            background: #111;
+            color: #fff;
 
-            padding: 6px 9px;
+            padding: 7px 12px;
+            border-radius: 5px;
+
+            cursor: pointer;
+            font-size: 13px;
         }
 
-
-        header {
-            min-height: 165px;
+        .botao-voz:hover {
+            background: #333;
         }
 
 
         /* =========================
-           PREÇO NO CELULAR
+           ÁREA PRINCIPAL
         ========================== */
 
-        .preco {
-            font-size: 22px;
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 20px;
         }
 
-    }
 
-</style>
-```
+        /* =========================
+           VITRINE DOS PRODUTOS
+
+           4 produtos por linha.
+
+           1  2  3  4
+           5  6  7  8
+           9 10 11 12
+
+           Todos os produtos precisam
+           ficar DENTRO desta div.
+        ========================== */
+
+        .produtos {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+
+            width: 100%;
+        }
+
+
+        /* =========================
+           CARD DO PRODUTO
+        ========================== */
+
+        .produto {
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+
+            overflow: visible;
+
+            background: #fff;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+            min-width: 0;
+
+            position: relative;
+        }
+
+
+        /* =========================
+           ÁREA DA IMAGEM
+        ========================== */
+
+        .area-imagem {
+            width: 100%;
+            height: 180px;
+
+            background: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px;
+
+            overflow: visible;
+
+            position: relative;
+            z-index: 1;
+        }
+
+
+        /* =========================
+           IMAGEM DO PRODUTO
+        ========================== */
+
+        .imagem-produto {
+            max-width: 100%;
+            max-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            display: block;
+
+            position: relative;
+
+            z-index: 2;
+
+            cursor: zoom-in;
+
+            transform-origin: center center;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease;
+        }
+
+
+        /* =========================
+           AUMENTA AO PASSAR O MOUSE
+        ========================== */
+
+        .imagem-produto:hover {
+            transform: scale(1.5);
+
+            cursor: zoom-in;
+
+            z-index: 1000;
+        }
+
+
+        /* =========================
+           AUMENTA AO CLICAR
+        ========================== */
+
+        .imagem-produto.ampliada {
+            transform: scale(2.2);
+
+            cursor: zoom-out;
+
+            z-index: 99999;
+        }
+
+
+        /* =========================
+           INFORMAÇÕES DO PRODUTO
+        ========================== */
+
+        .informacoes {
+            padding: 14px;
+        }
+
+        .nome-produto {
+            font-size: 17px;
+            line-height: 1.3;
+
+            margin-bottom: 8px;
+
+            min-height: 44px;
+        }
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+
+            color: #e60000;
+
+            margin-bottom: 10px;
+
+            text-align: left;
+        }
+
+        .descricao {
+            font-size: 13px;
+            line-height: 1.45;
+
+            color: #666;
+
+            margin-bottom: 12px;
+
+            white-space: pre-line;
+
+            min-height: 100px;
+        }
+
+
+        /* =========================
+           BOTÃO SHOPEE
+        ========================== */
+
+        .botao {
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            background: #111;
+            color: #fff;
+
+            padding: 10px;
+
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            margin-top: 12px;
+
+            font-size: 13px;
+        }
+
+        .botao:hover {
+            background: #333;
+        }
+
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            margin-top: 50px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-top: 1px solid #eee;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .produtos {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .produtos {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
+            }
+
+            .area-imagem {
+                height: 150px;
+            }
+
+            .informacoes {
+                padding: 10px;
+            }
+
+            .nome-produto {
+                font-size: 15px;
+            }
+
+            .preco {
+                font-size: 18px;
+            }
+
+            .descricao {
+                font-size: 12px;
+            }
+
+            .botao {
+                font-size: 12px;
+                padding: 9px 5px;
+            }
+
+            .titulo {
+                font-size: 27px;
+            }
+
+            .botao-voz {
+                top: 125px;
+                right: 10px;
+
+                font-size: 11px;
+
+                padding: 6px 9px;
+            }
+
+            header {
+                min-height: 165px;
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR PEQUENO
+        ========================== */
+
+        @media (max-width: 430px) {
+
+            .produtos {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+            .area-imagem {
+                height: 130px;
+            }
+
+            .nome-produto {
+                font-size: 14px;
+            }
+
+            .preco {
+                font-size: 17px;
+            }
+
+            .descricao {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-```
-<!-- =========================
-     TÍTULO
-========================== -->
 
-<header>
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
 
-    <h1 class="titulo">
-        Prime Shop | Shopee
-    </h1>
+    <header>
 
-    <p class="subtitulo">
-        Produtos selecionados para você
-    </p>
+        <h1 class="titulo">
+            Prime Shop | Shopee
+        </h1>
+
+        <p class="subtitulo">
+            Produtos selecionados para você
+        </p>
+
+
+        <p class="texto-superior" id="textoVoz">
+
+            Seja bem-vindo à Prime Shop!
+
+            Aqui você encontra produtos selecionados
+            e analisados para facilitar sua escolha.
+
+            As compras são realizadas com segurança
+            diretamente pela Shopee, proporcionando segurança.
+
+        </p>
+
+
+        <button
+            class="botao-voz"
+            onclick="lerMensagem()"
+        >
+            🔊 Ouça as boas-vindas — clique aqui!
+        </button>
+
+    </header>
+
 
 
     <!-- =========================
-         TEXTO OCULTO
-
-         A VOZ VAI LER ESTE TEXTO
+         CONTEÚDO PRINCIPAL
     ========================== -->
 
-    <p class="texto-superior" id="textoVoz">
-```
-
-Seja bem-vindo à Prime Shop!
-
-Aqui você encontra produtos selecionados e analisados para facilitar sua escolha.
-
-As compras são realizadas com segurança diretamente pela Shopee, proporcionando segurança.
-
-```
-    </p>
-
-
-    <!-- =========================
-         BOTÃO DE VOZ
-
-         A VOZ SÓ TOCA
-         QUANDO CLICAR
-    ========================== -->
-
-    <button
-        class="botao-voz"
-        onclick="lerMensagem()"
-    >
-        🔊 Ouça as boas-vindas — clique aqui!
-    </button>
-
-</header>
-
-
-
-<!-- =========================
-     PRODUTOS
-========================== -->
-
-<main class="container">
-
-    <div class="produtos">
+    <main class="container">
 
 
         <!-- =========================
-             PRODUTO 1
+             VITRINE
+
+             TODOS OS PRODUTOS FICAM
+             DENTRO DESTA DIV.
+
+             1  2  3  4
+             5  6  7  8
+             9 10 11 12
         ========================== -->
 
-        <div class="produto">
-
-            <div class="area-imagem">
-
-                <img
-                    class="imagem-produto"
-                    src="produto1.jpg"
-                    alt="Produto 1"
-                >
-
-            </div>
+        <div class="produtos">
 
 
-            <div class="informacoes">
+            <!-- =========================
+                 PRODUTO 1
+            ========================== -->
 
-                <h2 class="nome-produto">
-                    Sabonete Barra Avon Encanto Irresistive 4un 80g
-                </h2>
+            <div class="produto">
 
+                <div class="area-imagem">
 
-                <!-- =========================
-                     PREÇO
+                    <img
+                        class="imagem-produto"
+                        src="produto1.jpg"
+                        alt="Sabonete Avon Encanto"
+                        onclick="ampliarImagem(this)"
+                    >
 
-                     PADRÃO PARA TODOS
-                ========================== -->
-
-                <div class="preco">
-                    R$ 24,99
                 </div>
 
+                <div class="informacoes">
 
-                <p class="descricao">
-```
+                    <h2 class="nome-produto">
+                        Sabonete Barra Avon Encanto Irresistível 4un 80g
+                    </h2>
 
+                    <div class="preco">
+                        R$ 24,99
+                    </div>
+
+                    <p class="descricao">
 ENCANTO SABONETE
 BARRA IRRESISTIVE
-Irresistivel & Poderosa
+Irresistível & Poderosa
 Sabonete em Barra
+
 Modo de Uso
 
 Durante o banho,
 massageie delicadamente
 todo o corpo e enxágue
 em seguida.
+                    </p>
 
-```
-                </p>
+                    <a
+                        class="botao"
+                        href="https://s.shopee.com.br/1LgHiJwloQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
 
-
-                <a
-                    class="botao"
-                    href="https://s.shopee.com.br/1LgHiJwloQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🚨 NÃO PERCA!
-                    🛒 Clique aqui!
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             PRODUTO 2
-        ========================== -->
-
-        <div class="produto">
-
-            <div class="area-imagem">
-
-                <img
-                    class="imagem-produto"
-                    src="produto2.jpg"
-                    alt="Produto 2"
-                >
-
-            </div>
-
-
-            <div class="informacoes">
-
-                <h2 class="nome-produto">
-                 Protetor Solar Facial Avon com Protinol Renew FPS70 40g
-                </h2>
-
-
-                <!-- =========================
-                     PREÇO
-
-                     PADRÃO PARA TODOS
-                ========================== -->
-
-                <div class="preco">
-                    R$64,90
                 </div>
 
+            </div>
 
-                <p class="descricao">
-```
+
+
+            <!-- =========================
+                 PRODUTO 2
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto2.jpg"
+                        alt="Protetor Solar Facial Avon"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Protetor Solar Facial Avon com Protinol Renew FPS70 40g
+                    </h2>
+
+                    <div class="preco">
+                        R$ 64,90
+                    </div>
+
+                    <p class="descricao">
 Proteção e rejuvenescimento
 
 • FPS 70
@@ -530,104 +568,403 @@ Proteção e rejuvenescimento
 
 Modo de uso
 
-Aplique sobre a pele limpa e seca antes da exposição ao sol. Reaplique durante o dia, especialmente após suor ou contato com água.
+Aplique sobre a pele limpa e seca antes da exposição ao sol. Reaplique durante o dia.
+                    </p>
 
-```
-                </p>
+                    <a
+                        class="botao"
+                        href="https://s.shopee.com.br/6AlXbx1HGL"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
 
-
-                <a
-                    class="botao"
-                    href="https://s.shopee.com.br/6AlXbx1HGL"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🚨 NÃO PERCA!
-                    🛒 Clique aqui!
-                </a>
+                </div>
 
             </div>
 
+
+
+            <!-- =========================
+                 PRODUTO 3
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto3.jpg"
+                        alt="Deo Colônia Avon Attraction Desire"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Deo Colônia Avon Attraction Desire Para Ele 75ml
+                    </h2>
+
+                    <div class="preco">
+                        R$ 128,16
+                    </div>
+
+                    <p class="descricao">
+Attraction Desire For Him
+
+Perfume masculino intenso,
+marcante e sedutor.
+
+Perfeito para ocasiões especiais
+e momentos noturnos.
+
+Combina Cereja Negra, Íris,
+Sândalo, Âmbar e Vetiver.
+
+Família olfativa:
+Madeira Adocicado.
+
+Concentração: Intenso.
+                    </p>
+
+                    <a
+                        class="botao"
+                        href="https://s.shopee.com.br/5At1p2awFO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PRODUTO 4
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto4.jpg"
+                        alt="Produto 4"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Batom Líquido Matte Avon Power Stay 16h Cor Vermelhaço
+                    </h2>
+
+                    <div class="preco">
+                        R$49,99
+                    </div>
+
+                    <p class="descricao">
+  Batom Líquido Avon Power Stay 
+
+  Acabamento matte aveludado
+  Longa duração de até 16 horas
+  Não transfere, borra ou desbota facilmente
+  Fórmula com óleo de oliva e extrato de romã
+  Ajuda a manter os lábios hidratados e confortáveis
+
+   Batom de longa duração para lábios marcantes e confortáveis.
+
+                    </p>
+
+                    <a
+                        class="botao"
+                        href="https://s.shopee.com.br/8pmKFZKW2h"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PRODUTO 5
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto5.jpg"
+                        alt="Produto 5"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Nome do Produto 5
+                    </h2>
+
+                    <div class="preco">
+                        R$ 00,00
+                    </div>
+
+                    <p class="descricao">
+Descrição do produto.
+
+Coloque aqui as informações
+que deseja mostrar na vitrine.
+                    </p>
+
+                    <a
+                        class="botao"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PRODUTO 6
+
+                 AGORA ESTÁ DENTRO DA
+                 MESMA VITRINE.
+
+                 FICA AO LADO DO PRODUTO 5.
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto6.jpg"
+                        alt="Produto 6"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Nome do Produto 6
+                    </h2>
+
+                    <div class="preco">
+                        R$ 00,00
+                    </div>
+
+                    <p class="descricao">
+Descrição do produto.
+
+Coloque aqui as informações
+que deseja mostrar na vitrine.
+                    </p>
+
+                    <a
+                        class="botao"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        <!-- =================================================
+             NÃO COLOQUE O </div> DA VITRINE ANTES DO PRODUTO 6.
+
+             O FECHAMENTO ESTÁ AQUI.
+        ================================================== -->
+
+
+
+             <!-- =========================
+            coloque apartir daqui novo produto 
+            ========================== -->
+<!-- =========================
+                 PRODUTO 7
+
+                 AGORA ESTÁ DENTRO DA
+                 MESMA VITRINE.
+            ========================== -->
+
+            <div class="produto">
+
+                <div class="area-imagem">
+
+                    <img
+                        class="imagem-produto"
+                        src="produto7.jpg"
+                        alt="Produto 7"
+                        onclick="ampliarImagem(this)"
+                    >
+
+                </div>
+
+                <div class="informacoes">
+
+                    <h2 class="nome-produto">
+                        Nome do Produto 7
+                    </h2>
+
+                    <div class="preco">
+                        R$ 00,00
+                    </div>
+
+                    <p class="descricao">
+Descrição do produto.
+
+Coloque aqui as informações
+que deseja mostrar na vitrine.
+                    </p>
+
+                    <a
+                        class="botao"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🚨 NÃO PERCA! 🛒 Clique aqui!
+                    </a>
+
+                </div>
+
+            </div>
+
+  <!-- =========================
+            coloque apartir daqui novo produto 
+            ========================== -->
+           
+
+
         </div>
 
-
-    </div>
-
-</main>
+    </main>
 
 
 
-<!-- =========================
-     RODAPÉ
-========================== -->
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
 
-<footer>
+    <footer>
 
-    © 2026 Prime Shop | Shopee
-    <br>
-    Produtos selecionados para você.
+        © 2026 Prime Shop | Shopee
 
-</footer>
+        <br>
+
+        Produtos selecionados para você.
+
+    </footer>
 
 
 
-<!-- =========================
-     VOZ
+    <script>
 
-     SOMENTE QUANDO CLICAR
-     NO BOTÃO
-========================== -->
+        /* =========================
+           LEITURA DE VOZ
+        ========================== */
 
-<script>
+        function lerMensagem() {
 
-    function lerMensagem() {
+            if (!("speechSynthesis" in window)) {
 
-        if (!("speechSynthesis" in window)) {
+                alert(
+                    "Seu navegador não possui suporte para leitura de voz."
+                );
 
-            alert("Seu navegador não possui suporte para leitura de voz.");
+                return;
+            }
 
-            return;
+            speechSynthesis.cancel();
+
+            const elemento =
+                document.getElementById("textoVoz");
+
+            const texto =
+                elemento.innerText.trim();
+
+            const fala =
+                new SpeechSynthesisUtterance(texto);
+
+            fala.lang = "pt-BR";
+
+            fala.rate = 0.95;
+
+            fala.pitch = 1;
+
+            fala.volume = 1;
+
+            speechSynthesis.speak(fala);
+
         }
 
 
-        speechSynthesis.cancel();
 
+        /* =========================
+           AMPLIAR IMAGEM
+        ========================== */
 
-        const elemento = document.getElementById("textoVoz");
+        function ampliarImagem(imagem) {
 
-        const texto = elemento.innerText.trim();
+            const imagens =
+                document.querySelectorAll(
+                    ".imagem-produto"
+                );
 
+            imagens.forEach(function(outraImagem) {
 
-        const fala = new SpeechSynthesisUtterance(texto);
+                if (outraImagem !== imagem) {
 
+                    outraImagem.classList.remove(
+                        "ampliada"
+                    );
 
-        /* Português do Brasil */
+                }
 
-        fala.lang = "pt-BR";
+            });
 
+            imagem.classList.toggle("ampliada");
 
-        /* Velocidade da voz */
+        }
 
-        fala.rate = 0.95;
-
-
-        /* Tom da voz */
-
-        fala.pitch = 1;
-
-
-        /* Volume */
-
-        fala.volume = 1;
-
-
-        speechSynthesis.speak(fala);
-
-    }
-
-</script>
+    </script>
 
 
 </body>
 
 </html>
+
