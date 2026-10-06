@@ -6,9 +6,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Prime Shop | Shopee</title>
+ <header>
 
     <style>
+
+
+.titulo-linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.titulo {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.botao-instagram {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition: transform 0.2s ease;
+}
+
+.botao-instagram:hover {
+    transform: scale(1.08);
+}
+
+.imagem-instagram {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
 
         /* =========================
            CONFIGURAÇÃO GERAL
@@ -44,11 +94,12 @@
             font-weight: bold;
         }
 
-        .subtitulo {
-            margin-top: 8px;
-            color: #666;
-            font-size: 16px;
-        }
+            .subtitulo {
+                margin-top: 8px;
+                color: #000;
+                font-size: 16px;
+                font-weight: bold;
+            }
 
         .texto-superior {
             display: none;
@@ -79,12 +130,11 @@
            ÁREA PRINCIPAL
         ========================== */
 
-        .container {
+                .container {
             max-width: 1200px;
-            margin: 35px auto;
+            margin: 5px auto;
             padding: 0 20px;
         }
-
 
         /* =========================
            VITRINE DOS PRODUTOS
@@ -417,38 +467,65 @@
          CABEÇALHO
     ========================== -->
 
-    <header>
+    
 
-        <h1 class="titulo">
-            Prime Shop | Shopee
-        </h1>
+        <header>
 
-        <p class="subtitulo">
-            Produtos selecionados para você
-        </p>
+                            <div class="titulo-linha">
+                                
+                        <a
+                            class="texto-instagram"
+                            href="https://www.instagram.com/new_prime_shop_oficial/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram Oficial
+                        </a>
 
+                    <a
+                        class="botao-instagram"
+                        href="https://www.instagram.com/new_prime_shop_oficial/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visitar Instagram da Prime Shop"
+                    >
+                        <img
+                            class="imagem-instagram"
+                            src="instagran.jpg"
+                            alt="Instagram"
+                        >
+                    </a>
 
-        <p class="texto-superior" id="textoVoz">
+  
+                    <h1 class="titulo">
+                        Prime Shop | Shopee
+                    </h1>
 
-            Seja bem-vindo à Prime Shop!
+                   
 
-            Aqui você encontra produtos selecionados
-            e analisados para facilitar sua escolha.
+                </div>
+            <p class="subtitulo">
+                Produtos selecionados para você
+            </p>
 
-            As compras são realizadas com segurança
-            diretamente pela Shopee, proporcionando segurança.
+            <p class="texto-superior" id="textoVoz">
+                Seja bem-vindo à Prime Shop!
 
-        </p>
+                Aqui você encontra produtos selecionados
+                e analisados para facilitar sua escolha.
 
+                As compras são realizadas com segurança
+                diretamente pela Shopee, proporcionando segurança.
+            </p>
+            <button
+                class="botao-voz"
+                onclick="lerMensagem()"
+            >
+                🔊 Ouça as boas-vindas — clique aqui!
+            </button>
 
-        <button
-            class="botao-voz"
-            onclick="lerMensagem()"
-        >
-            🔊 Ouça as boas-vindas — clique aqui!
-        </button>
-
-    </header>
+        </header>
+            
 
 
 
@@ -864,7 +941,7 @@ que deseja mostrar na vitrine.
 
             </div>
 
-  <!-- =========================
+            <!-- =========================
             coloque apartir daqui novo produto 
             ========================== -->
            
